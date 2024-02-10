@@ -160,7 +160,7 @@ bool isempty(Stack *s){
 }
 
 bool isfull(Stack *s){
-    if (&s->array.size == 0) { return false; } else { return true; }
+    if (&s->array.size == &s->array.capacity) { return true; } else { return false; }
     
 }
 
