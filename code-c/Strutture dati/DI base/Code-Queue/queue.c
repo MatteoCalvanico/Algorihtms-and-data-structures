@@ -114,7 +114,7 @@ bool queue_offer(Queue *q, TInfo val){
     return true;
 }
 
-//Poll: tenta di rimuovere e restituire l'elemento in testa alla coda
+//Poll: tenta di restituire l'indirizzo di memoria dell'elemento in testa alla coda
 TInfo* queue_poll(Queue *q){
     if (q->size == 0) {
         return NULL; // La coda è vuota
