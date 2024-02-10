@@ -143,3 +143,28 @@ bool queue_isempty(Queue *q){
 bool queue_isfull(Queue *q){
     return q->size == q->capacity;
 }
+
+
+/* Main */
+int main(){
+    Queue q = queue_create(10);
+    
+    if (queue_isempty(&q))
+    {
+        printf("Coda vuota\n");
+    }
+
+    queue_add(&q, 3);
+    queue_add(&q, 9);
+    queue_add(&q, 5);
+    queue_add(&q, 0);
+
+    if (!queue_isempty(&q))
+    {
+        printf("Coda NON vuota\n");
+    }
+
+    printf("La testa è: %d\n", front(&q));
+
+    return 0;
+}
