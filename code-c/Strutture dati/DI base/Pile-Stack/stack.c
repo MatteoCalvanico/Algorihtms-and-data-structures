@@ -151,6 +151,7 @@ TInfo stack_pop(Stack *s){
 
 TInfo stack_top(Stack *s){
     TInfo top = darray_get(&s->array, (s->array.size-1));
+    return top;
 }
 
 bool isempty(Stack *s){
