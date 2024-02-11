@@ -23,6 +23,16 @@ struct SDArray {
 };
 typedef struct SDArray DArray;
 
+DArray darray_create(int initial_size);
+DArray darray_create_cap(int initial_size, int initial_capacity);
+void darray_resize_linear(DArray *da, int new_size);
+void darray_resize_geometric(DArray *da, int new_size);
+void darray_destroy(DArray *da);
+void darray_set(DArray *da, int pos, TInfo value);
+void darray_insert(DArray *da, int insert_pos, TInfo value);
+void darray_append(DArray *da, TInfo value);
+void darray_expand(DArray *da, TInfo *arr, int sz);
+
 DArray darray_create(int initial_size) {
     DArray a;
     a.item = (TInfo*) malloc(sizeof(TInfo) * initial_size);
