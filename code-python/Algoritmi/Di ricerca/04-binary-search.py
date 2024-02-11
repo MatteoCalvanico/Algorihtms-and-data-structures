@@ -9,36 +9,36 @@ def binarySearch(array,From,to,elem):
             to = pos - 1
     return -1
 
-def interpolationSearch(array,From,to,elem):
+def interpolationSearch(array, From, to, elem):
     x0 = From
     x1 = to
     y = elem
 
-    while From <= to:
-        y0 = array[From]
-        y1 = array[to]
+    while x0 <= x1:
+        y0 = array[x0]
+        y1 = array[x1]
 
-        #Se la diff fra il più grande e il più piccolo nell'intervallo è 0 il calcolo darebbe dei problemi
-        if((y1 - y0) == 0): 
-            if(array[x0] == y): #Controlliamo se abbiamo trovato il valore, altrimenti concludiamo
-                return x0 
-            else: 
-                return - 1
+        if y1 == y0:  #Se siamo alla fine dell'array o l'array dato è di un solo valore
+            if array[x0] == y:
+                return x0  #Se presente
+            else:
+                return -1  #Se non presente
 
-        #Calcolo pivot
         pos = x0 + ((x1 - x0) * (elem - y0)) // (y1 - y0)
 
-        #Se il valore è fuori dal range dell'array allora non è presente
-        if((pos > x1) | (pos < x0)): return -1 
-        
-        #Parte identica a quello binario
-        if(array[pos] < y):
+        if pos < 0 | pos >= len(array):  #Controllo se la posizione calcolata è all'interno dei limiti dell'array
+            return -1
+
+        if array[pos] == y:
+            return pos
+        elif array[pos] < y:
             x0 = pos + 1
         else:
             x1 = pos - 1
     return -1
 
 
+
 test = [1,2,3,4,4,6,7,8,9,10]
 
-print(binarySearch(test, 0, 8, 8))
+print(interpolationSearch(test, 0, 8, 4))
