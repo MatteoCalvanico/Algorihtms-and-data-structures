@@ -4,9 +4,9 @@ def binarySearch(array,From,to,elem):
         if(array[pos] == elem):
             return pos
         if(array[pos] < elem):
-            From = pos
+            From = pos + 1
         else:
-            to = pos
+            to = pos - 1
     return -1
 
 def interpolationSearch(array,From,to,elem):
@@ -41,4 +41,4 @@ def interpolationSearch(array,From,to,elem):
 
 test = [1,2,3,4,4,6,7,8,9,10]
 
-print(binarySearch(test, 0, 8, 4))
+print(binarySearch(test, 0, 8, 8))
